@@ -2,11 +2,12 @@
 > An image scraping library for creating deep learning datasets.
 
 
-This library is for creating deep learning datasets. It uses DuckDuckGo for the image scraping as they have some rather nice parameters to make your life easier, for example we can filter the searches to only return photos, and only images which are (relatively) square.
+This library is for creating deep learning datasets. 
 
-Included is an image cleaner which you can use directly from your notebook to check the results and delete unsuitable images.
+It uses DuckDuckGo for the image scraping as they have return nice big images and have some rather nice parameters to make your life easier, for example we can filter the searches to only return square images which are photos.
 
-Also included is the ability to create CSV datasets which just contain a list of URLs and their labels.
+`jmd_imagescraper.core` contains the main scraping/downloading functionality. \
+`jmd_imagescraper.imagecleaner` contains an image cleaner you can use from within your notebook to clean up the results and delete anything unsuitable.
 
 ## Install
 
@@ -15,8 +16,8 @@ Also included is the ability to create CSV datasets which just contain a list of
 ## How to use
 
 ```python
-from pathlib import Path
 from jmd_imagescraper.core import *
+from pathlib import Path
 
 root = Path().cwd()/"images"
 duckduckgo_search(root, "Puppies", "cute puppies", max_results=10)
