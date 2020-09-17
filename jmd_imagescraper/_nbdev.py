@@ -3,8 +3,8 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"ImgSize": "00_core.ipynb",
-         "ImgType": "00_core.ipynb",
          "ImgLayout": "00_core.ipynb",
+         "ImgType": "00_core.ipynb",
          "ImgColor": "00_core.ipynb",
          "duckduckgo_scrape_urls": "00_core.ipynb",
          "rmtree": "00_core.ipynb",

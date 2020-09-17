@@ -32,7 +32,7 @@ nb_path: "index.ipynb"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This library is for creating deep learning datasets. It uses DuckDuckGo for the image scraping as they have some rather nice parameters to make your life easier, for example we can filter the searches to only return photos, and only images which are (relatively) square.</p>
-<p>Included here is an image cleaner which you can use directly from your notebook to check the results and delete unsuitable images.</p>
+<p>Included is an image cleaner which you can use directly from your notebook to check the results and delete unsuitable images.</p>
 <p>Also included is the ability to create CSV datasets which just contain a list of URLs and their labels.</p>
 
 </div>
@@ -69,7 +69,7 @@ nb_path: "index.ipynb"
 
 <span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">/</span><span class="s2">&quot;images&quot;</span>
 
-<span class="n">duckduckgo_search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Puppies&quot;</span><span class="p">,</span> <span class="s2">&quot;cute puppies&quot;</span><span class="p">,</span> <span class="n">max_results</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">duckduckgo_search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Puppies&quot;</span><span class="p">,</span> <span class="s2">&quot;cute puppies&quot;</span><span class="p">,</span> <span class="n">max_results</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -83,7 +83,7 @@ nb_path: "index.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: cute puppies
-Downloading 10 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Puppies
+Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Puppies
 </pre>
 </div>
 </div>
@@ -91,18 +91,25 @@ Downloading 10 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\image
 <div class="output_area">
 
 
+<div class="output_html rendered_html output_subarea ">
 
-<div class="output_text output_subarea output_execute_result">
-<pre>[WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/001.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/002.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/003.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/004.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/005.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/006.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/007.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/008.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/009.jpg&#39;),
- WindowsPath(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/010.jpg&#39;)]</pre>
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='128' class='' max='500' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      25.60% [128/500 00:45<02:12 Images downloaded]
+    </div>
+    
 </div>
 
 </div>

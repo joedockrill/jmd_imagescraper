@@ -6,8 +6,8 @@ title: core
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Image scraping library for creating deep learning datasets. Uses DuckDuckGo, as the API for searching has more options and better results than the alternatives."
-description: "Image scraping library for creating deep learning datasets. Uses DuckDuckGo, as the API for searching has more options and better results than the alternatives."
+summary: "Core image scraping functions for creating deep learning datasets"
+description: "Core image scraping functions for creating deep learning datasets"
 nb_path: "00_core.ipynb"
 ---
 <!--
@@ -32,30 +32,13 @@ nb_path: "00_core.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># !pip install -U -q nbdev</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Search-filtering">Search filtering<a class="anchor-link" href="#Search-filtering"> </a></h2><p>The scrape/search functions can use the following enums as filters for searches. By default the results <strong>should be</strong> square photos. This is what's requested from DDG. Sometimes results may not be quite what you've requested (eg: you may get a bit of clipart or something more or less square but not exactly). No checks are done on what comes back.</p>
+<h2 id="Search-filtering">Search filtering<a class="anchor-link" href="#Search-filtering"> </a></h2><p>The scrape/search functions can use the following enums as filters for searches. By default the results <strong>should be</strong> square photos as this is what's requested from DDG. Sometimes results may not be quite what you've requested (eg: you may get a bit of clipart or something more or less square but not exactly) but the filtering is normally pretty good. No checks are actually done on what comes back.</p>
 
 </div>
 </div>
@@ -63,51 +46,6 @@ nb_path: "00_core.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ImgSize</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-  <span class="n">Thumbs</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-  <span class="n">Small</span><span class="o">=</span><span class="s2">&quot;Small&quot;</span>
-  <span class="n">Medium</span><span class="o">=</span><span class="s2">&quot;Medium&quot;</span>
-  <span class="n">Large</span><span class="o">=</span><span class="s2">&quot;Large&quot;</span>
-  <span class="n">Wallpaper</span><span class="o">=</span><span class="s2">&quot;Wallpaper&quot;</span>
-
-<span class="k">class</span> <span class="nc">ImgType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-  <span class="n">All</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-  <span class="n">Photo</span><span class="o">=</span><span class="s2">&quot;photo&quot;</span>
-  <span class="n">Clipart</span><span class="o">=</span><span class="s2">&quot;clipart&quot;</span>
-  <span class="n">Gif</span><span class="o">=</span><span class="s2">&quot;gif&quot;</span>
-  <span class="n">Transparent</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span>
-
-<span class="k">class</span> <span class="nc">ImgLayout</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-  <span class="n">All</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-  <span class="n">Square</span><span class="o">=</span><span class="s2">&quot;Square&quot;</span>
-  <span class="n">Tall</span><span class="o">=</span><span class="s2">&quot;Tall&quot;</span>
-  <span class="n">Wide</span><span class="o">=</span><span class="s2">&quot;Wide&quot;</span>
-  
-<span class="k">class</span> <span class="nc">ImgColor</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-  <span class="n">All</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-  <span class="n">Color</span><span class="o">=</span><span class="s2">&quot;color&quot;</span>
-  <span class="n">Monochrome</span><span class="o">=</span><span class="s2">&quot;Monochrome&quot;</span>
-  <span class="n">Red</span><span class="o">=</span><span class="s2">&quot;Red&quot;</span>
-  <span class="n">Orange</span><span class="o">=</span><span class="s2">&quot;Orange&quot;</span>
-  <span class="n">Yellow</span><span class="o">=</span><span class="s2">&quot;Yellow&quot;</span>
-  <span class="n">Green</span><span class="o">=</span><span class="s2">&quot;Green&quot;</span>
-  <span class="n">Blue</span><span class="o">=</span><span class="s2">&quot;Blue&quot;</span>
-  <span class="n">Purple</span><span class="o">=</span><span class="s2">&quot;Purple&quot;</span>
-  <span class="n">Pink</span><span class="o">=</span><span class="s2">&quot;Pink&quot;</span> 
-  <span class="n">Brown</span><span class="o">=</span><span class="s2">&quot;Brown&quot;</span>
-  <span class="n">Black</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span> 
-  <span class="n">Gray</span><span class="o">=</span><span class="s2">&quot;Gray&quot;</span> 
-  <span class="n">Teal</span><span class="o">=</span><span class="s2">&quot;Teal&quot;</span>
-  <span class="n">White</span><span class="o">=</span><span class="s2">&quot;White&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
     {% endraw %}
@@ -123,7 +61,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImgSize" class="doc_header"><code>ImgSize</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L25" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [Thumbs, Small, Medium, Large, Wallpaper]</p>
+<h2 id="ImgSize" class="doc_header"><code>ImgSize</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L25" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [Cached, Small, Medium, Large, Wallpaper]</p>
 </blockquote>
 <p>An enumeration.</p>
 
@@ -133,6 +71,20 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using <code>Cached</code> as the image size (the default) returns the image cached by DuckDuckGo/Bing. This is a very decent size for deep learning purposes and is much more reliable to download from (no 404s, no hot-linking bans etc). Using any other size will return the original images from the source websites.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -148,7 +100,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImgType" class="doc_header"><code>ImgType</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L32" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Photo, Clipart, Gif, Transparent]</p>
+<h2 id="ImgLayout" class="doc_header"><code>ImgLayout</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L33" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Square, Tall, Wide]</p>
 </blockquote>
 <p>An enumeration.</p>
 
@@ -158,6 +110,20 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This defaults to <code>Square</code> everywhere because that's what your DL models want.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -173,7 +139,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImgLayout" class="doc_header"><code>ImgLayout</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L39" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Square, Tall, Wide]</p>
+<h2 id="ImgType" class="doc_header"><code>ImgType</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Photo, Clipart, Gif, Transparent]</p>
 </blockquote>
 <p>An enumeration.</p>
 
@@ -183,6 +149,20 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Defaults to <code>Photo</code> everywhere</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -198,7 +178,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ImgColor" class="doc_header"><code>ImgColor</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L45" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Color, Monochrome, Red, Orange, Yellow, Green, Blue, Purple, Pink, Brown, Black, Gray, Teal, White]</p>
+<h2 id="ImgColor" class="doc_header"><code>ImgColor</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L48" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Color, Monochrome, Red, Orange, Yellow, Green, Blue, Purple, Pink, Brown, Black, Gray, Teal, White]</p>
 </blockquote>
 <p>An enumeration.</p>
 
@@ -212,6 +192,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probably unlikely to be of much use to you but it's part of the API so I include it. You never know...</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Scraping-URLs">Scraping URLs<a class="anchor-link" href="#Scraping-URLs"> </a></h2>
@@ -236,9 +223,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="duckduckgo_scrape_urls" class="doc_header"><code>duckduckgo_scrape_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_scrape_urls</code>(<strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescrapercore.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Thumbs: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescrapercore.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescrapercore.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescrapercore.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="duckduckgo_scrape_urls" class="doc_header"><code>duckduckgo_scrape_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_scrape_urls</code>(<strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
 </blockquote>
-<p>scrape urls from duckduckgo image search</p>
+<p>Scrapes URLs from DuckDuckGo image search</p>
 
 </div>
 
@@ -252,31 +239,11 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Returns a list of image URLs for this search. At the time of writing, this function will return up to 477 urls for a single search.</p>
+<p>Returns a list of URLs. At the time of writing, this function will return up to 477 urls for a single search.</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">IPImage</span>
-
-<span class="k">def</span> <span class="nf">display_img</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">IPImage</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -347,7 +314,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that what gets returned by default is actually the image preview you see in the search results, not a thumbnail, and is quite a decent size, but comes from DDG. If you specify a size other than thumbs, then the URL returned is the original source URL, and is therefore more likely to fail a download attempt. The default (as shown above) should generally be sufficient for your needs.</p>
+<p>This is the kind of size you can expect by default. As you can see it should normally be sufficient for your needs.</p>
 <p>Since the parameters you use are likely to be the same across every image search within your dataset, if you plan on overriding the defaults, you can pass your parameters in using a dictionary like this:</p>
 
 </div>
@@ -384,9 +351,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;http://4.bp.blogspot.com/-GKGVUan6I3w/UOQtWCzichI/AAAAAAAANs0/mxox-FdrnRA/s1600/019.jpg&#39;,
- &#39;https://i.pinimg.com/736x/fa/fd/83/fafd8381375e3724bb2b2842ad175792--alessandra-ambrosio-dip-dyed.jpg&#39;,
- &#39;https://i.pinimg.com/originals/7e/a1/5b/7ea15b145096fd73aa95b4cf1ea2d35c.gif&#39;]</pre>
+<pre>[&#39;https://cdn3.volusion.com/9nxdj.fchy5/v/vspfiles/photos/WR-13710-2T.jpg?1528880561&#39;,
+ &#39;http://4.bp.blogspot.com/-GKGVUan6I3w/UOQtWCzichI/AAAAAAAANs0/mxox-FdrnRA/s1600/019.jpg&#39;,
+ &#39;https://i.pinimg.com/736x/fa/fd/83/fafd8381375e3724bb2b2842ad175792--alessandra-ambrosio-dip-dyed.jpg&#39;]</pre>
 </div>
 
 </div>
@@ -404,7 +371,7 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_img</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display_img</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="c1"># why? just why??</span>
 </pre></div>
 
@@ -454,8 +421,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rmtree" class="doc_header"><code>rmtree</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L143" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmtree</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
+<h4 id="rmtree" class="doc_header"><code>rmtree</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L146" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmtree</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
 </blockquote>
+<p>Recursively delete a directory tree</p>
 
 </div>
 
@@ -469,7 +437,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can use <code>rmtree()</code> to scrub your downloaded images, either to create a new dataset or if you just want to "reset" and start over.</p>
+<p>You can use <code>rmtree()</code> to scrub your downloaded images, either to create a new dataset or if you just want to "reset" and start over while experimenting.</p>
 
 </div>
 </div>
@@ -509,9 +477,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_urls" class="doc_header"><code>download_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L150" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_urls</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>links</code></strong>:<code>list</code>)</p>
+<h4 id="download_urls" class="doc_header"><code>download_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L155" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_urls</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>links</code></strong>:<code>list</code>)</p>
 </blockquote>
-<p>downloads urls into the given folder</p>
+<p>Downloads urls to the given path</p>
 
 </div>
 
@@ -525,8 +493,8 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Downloads a list of URLs into the given folder. Files will be saved as 001.jpg, 002.jpg etc but images already present will not be overwritten, so you can run multiple searches for the same label (eg: different genres of orchid all under one 'orchid' label) and file numbering will carry on from the last one on disc.</p>
-<p>Downloaded files will be checked for validity so you should never end up with corrupt images or truncated downloads.</p>
+<p>Files will be saved as 001.jpg, 002.jpg etc but images already present will not be overwritten, so you can run multiple searches for the same label (eg: different genres of orchid all under one 'orchid' label) and file numbering will carry on from the last one on disc.</p>
+<p>Downloaded files will be checked for validity so you should never end up with corrupt images or truncated downloads. (Let me know if anything duff gets through)</p>
 <p>Returns a list of Path objects for succesfully downloaded images.</p>
 
 </div>
@@ -552,9 +520,35 @@ nb_path: "00_core.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\purple
+<pre>Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\purple
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:00<00:00 Images downloaded]
+    </div>
+    
+</div>
+
 </div>
 
 <div class="output_area">
@@ -593,9 +587,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="duckduckgo_search" class="doc_header"><code>duckduckgo_search</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L194" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_search</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescrapercore.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Thumbs: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescrapercore.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescrapercore.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescrapercore.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="duckduckgo_search" class="doc_header"><code>duckduckgo_search</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L199" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_search</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
 </blockquote>
-<p>run a duckduckgo search and download the images</p>
+<p>Run a DuckDuckGo search and download the images</p>
 
 </div>
 
@@ -609,7 +603,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Run a search and download the images. Returns a list of Path objects for the image files on disc.</p>
+<p>Returns a list of Path objects for the image files on disc.</p>
 
 </div>
 </div>
@@ -635,9 +629,35 @@ nb_path: "00_core.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: nice clowns
-Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
+Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:00<00:00 Images downloaded]
+    </div>
+    
+</div>
+
 </div>
 
 <div class="output_area">
@@ -674,7 +694,7 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;max_results&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="s2">&quot;img_size&quot;</span><span class="p">:</span>    <span class="n">ImgSize</span><span class="o">.</span><span class="n">Thumbs</span><span class="p">,</span> 
+    <span class="s2">&quot;img_size&quot;</span><span class="p">:</span>    <span class="n">ImgSize</span><span class="o">.</span><span class="n">Cached</span><span class="p">,</span> 
     <span class="s2">&quot;img_type&quot;</span><span class="p">:</span>    <span class="n">ImgType</span><span class="o">.</span><span class="n">Photo</span><span class="p">,</span>
     <span class="s2">&quot;img_layout&quot;</span><span class="p">:</span>  <span class="n">ImgLayout</span><span class="o">.</span><span class="n">Square</span><span class="p">,</span>
     <span class="s2">&quot;img_color&quot;</span><span class="p">:</span>   <span class="n">ImgColor</span><span class="o">.</span><span class="n">All</span>
@@ -683,6 +703,7 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
 <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">imgs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">duckduckgo_search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Nice&quot;</span><span class="p">,</span> <span class="s2">&quot;nice clowns&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">))</span>
 <span class="n">imgs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">duckduckgo_search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Scary&quot;</span><span class="p">,</span> <span class="s2">&quot;scary clowns&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">))</span>
+<span class="n">imgs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">duckduckgo_search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Mime&quot;</span><span class="p">,</span> <span class="s2">&quot;mimes&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">))</span>
 <span class="n">imgs</span>
 </pre></div>
 
@@ -697,11 +718,105 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: nice clowns
-Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
-Duckduckgo search: scary clowns
-Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Scary
+Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:00<00:00 Images downloaded]
+    </div>
+    
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Duckduckgo search: scary clowns
+Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Scary
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:00<00:00 Images downloaded]
+    </div>
+    
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Duckduckgo search: mimes
+Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Mime
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:00<00:00 Images downloaded]
+    </div>
+    
+</div>
+
 </div>
 
 <div class="output_area">
@@ -714,7 +829,10 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
  Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/006.jpg&#39;),
  Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/001.jpg&#39;),
  Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/002.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/003.jpg&#39;)]</pre>
+ Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/003.jpg&#39;),
+ Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/001.jpg&#39;),
+ Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/002.jpg&#39;),
+ Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/003.jpg&#39;)]</pre>
 </div>
 
 </div>
@@ -750,9 +868,9 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="save_urls_to_csv" class="doc_header"><code>save_urls_to_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L206" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>save_urls_to_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescrapercore.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Thumbs: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescrapercore.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescrapercore.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescrapercore.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="save_urls_to_csv" class="doc_header"><code>save_urls_to_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L211" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>save_urls_to_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
 </blockquote>
-<p>run a search and concat the urls to a csv</p>
+<p>Run a search and concat the URLs to a CSV file</p>
 
 </div>
 
@@ -909,8 +1027,9 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_images_from_csv" class="doc_header"><code>download_images_from_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L226" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_images_from_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>csv</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>url_col</code></strong>:<code>str</code>=<em><code>'URL'</code></em>, <strong><code>label_col</code></strong>:<code>str</code>=<em><code>'Label'</code></em>)</p>
+<h4 id="download_images_from_csv" class="doc_header"><code>download_images_from_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L231" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_images_from_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>csv</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>url_col</code></strong>:<code>str</code>=<em><code>'URL'</code></em>, <strong><code>label_col</code></strong>:<code>str</code>=<em><code>'Label'</code></em>)</p>
 </blockquote>
+<p>Download the URLs from a CSV file to the given path</p>
 
 </div>
 
@@ -949,42 +1068,69 @@ Downloading 3 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading 5 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
-Downloading 5 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Scary
+<pre>Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
 </pre>
 </div>
 </div>
 
-</div>
-</div>
+<div class="output_area">
 
-</div>
-    {% endraw %}
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="output_html rendered_html output_subarea ">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">notebook2script</span><span class="p">()</span>
-</pre></div>
-
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='5' class='' max='5' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [5/5 00:01<00:00 Images downloaded]
     </div>
-</div>
+    
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
 
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Converted 00_core.ipynb.
-Converted index.ipynb.
+<pre>Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Scary
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='5' class='' max='5' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [5/5 00:01<00:00 Images downloaded]
+    </div>
+    
+</div>
+
 </div>
 
 </div>
