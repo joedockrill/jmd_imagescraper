@@ -18,36 +18,12 @@ Also included is the ability to create CSV datasets which just contain a list of
 from pathlib import Path
 
 root = Path().cwd()/"images"
-root
+
 ```
 
 
 
 
     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images')
-
-
-
-```python
-duckduckgo_search(root, "Puppies", "cute puppies", max_results=10)
-```
-
-    Duckduckgo search: cute puppies
-    Downloading 10 results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Puppies
-    
-
-
-
-
-    [WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/001.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/002.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/003.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/004.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/005.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/006.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/007.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/008.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/009.jpg'),
-     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/010.jpg')]
 
 
