@@ -20,7 +20,7 @@ from jmd_imagescraper.core import *
 
 root = Path().cwd()/"images"
 
-duckduckgo_search(root, "Puppies", "cute puppies", max_results=500)
+duckduckgo_search(root, "Puppies", "cute puppies", max_results=10)
 ```
 
     Duckduckgo search: cute puppies
@@ -42,8 +42,24 @@ duckduckgo_search(root, "Puppies", "cute puppies", max_results=500)
             background: #F44336;
         }
     </style>
-  <progress value='128' class='' max='500' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  25.60% [128/500 00:45<02:12 Images downloaded]
+  <progress value='10' class='' max='10' style='width:300px; height:20px; vertical-align: middle;'></progress>
+  100.00% [10/10 00:02<00:00 Images downloaded]
 </div>
+
+
+
+
+
+
+    [WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/001.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/002.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/003.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/004.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/005.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/006.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/007.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/008.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/009.jpg'),
+     WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/010.jpg')]
 
 

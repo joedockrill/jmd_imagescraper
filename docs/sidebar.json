@@ -1,6 +1,7 @@
 {
   "jmd_imagescraper": {
     "Overview": "/",
-    "core": "core.html"
+    "jmd_imagescraper.core": "core.html",
+    "jmd_imagescraper.imagecleaner": "imagecleaner.html"
   }
 }

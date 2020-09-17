@@ -10,8 +10,11 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: core
+      title: jmd_imagescraper.core
       url: core.html
+    - output: web,pdf
+      title: jmd_imagescraper.imagecleaner
+      url: imagecleaner.html
     output: web
     title: jmd_imagescraper
   output: web

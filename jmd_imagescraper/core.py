@@ -68,7 +68,7 @@ def duckduckgo_scrape_urls(keywords: str, max_results: int,
                            img_type: ImgType=ImgType.Photo,
                            img_layout: ImgLayout=ImgLayout.Square,
                            img_color: ImgColor=ImgColor.All) -> list:
-  '''Scrapes URLs from DuckDuckGo image search'''
+  '''Scrapes URLs from DuckDuckGo image search. Returns list of URLs.'''
   BASE_URL = 'https://duckduckgo.com/'
   params = {
     'q': keywords
@@ -153,7 +153,7 @@ def rmtree(path: Union[str, Path]):
 
 # Cell
 def download_urls(path: Union[str, Path], links: list) -> list:
-  '''Downloads urls to the given path'''
+  '''Downloads urls to the given path. Returns a list of Path objects for files downloaded to disc.'''
   if(len(links) == 0):
     print("Nothing to download!"); return
 
@@ -201,7 +201,7 @@ def duckduckgo_search(path: Union[str, Path], label: str, keywords: str, max_res
                            img_type: ImgType=ImgType.Photo,
                            img_layout: ImgLayout=ImgLayout.Square,
                            img_color: ImgColor=ImgColor.All) -> list:
-  '''Run a DuckDuckGo search and download the images'''
+  '''Run a DuckDuckGo search and download the images. Returns a list of Path objects for files downloaded to disc.'''
 
   print("Duckduckgo search:", keywords)
   links = duckduckgo_scrape_urls(keywords, max_results, img_size, img_type, img_layout, img_color)
@@ -229,13 +229,16 @@ def save_urls_to_csv(path: Union[str, Path], label: str, keywords: str, max_resu
 
 # Cell
 def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_col: str="URL", label_col: str="Label"):
-    '''Download the URLs from a CSV file to the given path'''
+    '''Download the URLs from a CSV file to the given path. Returns a list of Path objects for files downloaded to disc.'''
     path = Path(path); csv = Path(csv);
 
     df = pd.read_csv(csv)
     labels = df.Label.unique()
+    imgs = []
 
     for label in labels:
         df_label = df.loc[df[label_col] == label]
         urls = df_label[url_col].to_list()
-        download_urls(path/label, urls)
+        imgs.extend(download_urls(path/label, urls))
+
+    return imgs
