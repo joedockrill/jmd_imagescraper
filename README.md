@@ -19,7 +19,6 @@ from pathlib import Path
 from jmd_imagescraper.core import *
 
 root = Path().cwd()/"images"
-
 duckduckgo_search(root, "Puppies", "cute puppies", max_results=10)
 ```
 
@@ -63,3 +62,10 @@ duckduckgo_search(root, "Puppies", "cute puppies", max_results=10)
      WindowsPath('C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Puppies/010.jpg')]
 
 
+
+```python
+from jmd_imagescraper.imagecleaner import *
+display_image_cleaner(root)
+```
+
+![](image_cleaner.jpg)
