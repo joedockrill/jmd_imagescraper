@@ -4,12 +4,11 @@ __all__ = ['display_image_cleaner']
 
 # Cell
 from pathlib import Path
-#import shutil
 from PIL import Image as PImage
 from PIL import ImageDraw as PImageDraw
 import ipywidgets as widgets
 from IPython.display import display
-
+from io import BytesIO
 
 # Internal Cell
 
@@ -50,7 +49,7 @@ def folder_on_change(change):
 # UI creation
 ##########################################################################################
 def icln_deleted_img():
-  # creates the red "deleted" placeholder cross once, loads it and caches it
+  # creates the red "deleted" placeholder cross and caches it
   DELETED_IMG = "deleted_img"
 
   if(DELETED_IMG not in icln_deleted_img.__dict__):
@@ -60,10 +59,9 @@ def icln_deleted_img():
     draw.line((5, 5, 140, 140), fill="red", width=10)
     draw.line((5, 140, 140, 5), fill="red", width=10)
 
-    # must be able to go from pil to something the widget likes without bouncing off disc :-/
-    img.save("deleted.jpg")
-    icln_deleted_img.__dict__[DELETED_IMG] = open("deleted.jpg", "rb").read()
-    # TODO: fix this
+    bio = BytesIO()
+    img.save(bio, 'JPEG')
+    icln_deleted_img.__dict__[DELETED_IMG] = bio.getvalue()
 
   return icln_deleted_img.__dict__[DELETED_IMG]
 
