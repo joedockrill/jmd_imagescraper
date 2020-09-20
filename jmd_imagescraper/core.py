@@ -152,7 +152,9 @@ def rmtree(path: Union[str, Path]):
     path.rmdir()
 
 # Cell
-def download_urls(path: Union[str, Path], links: list) -> list:
+import uuid
+
+def download_urls(path: Union[str, Path], links: list, random_names=False) -> list:
   '''Downloads urls to the given path. Returns a list of Path objects for files downloaded to disc.'''
   if(len(links) == 0):
     print("Nothing to download!"); return
@@ -165,7 +167,9 @@ def download_urls(path: Union[str, Path], links: list) -> list:
   pbar.comment = 'Images downloaded'
 
   i = 1
-  mk_fp = lambda x: path/(str(x).zfill(3) + ".jpg")
+  mk_uniq = lambda : '_' + str(uuid.uuid4())[:8] if random_names else ''
+  mk_fp = lambda x: path/(str(x).zfill(3) + mk_uniq() + ".jpg")
+
   is_file = lambda x: mk_fp(x).exists()
   while is_file(i): i += 1 # don't overwrite previous searches
 
@@ -200,12 +204,13 @@ def duckduckgo_search(path: Union[str, Path], label: str, keywords: str, max_res
                            img_size: ImgSize=ImgSize.Cached,
                            img_type: ImgType=ImgType.Photo,
                            img_layout: ImgLayout=ImgLayout.Square,
-                           img_color: ImgColor=ImgColor.All) -> list:
+                           img_color: ImgColor=ImgColor.All,
+                           random_names: bool=False) -> list:
   '''Run a DuckDuckGo search and download the images. Returns a list of Path objects for files downloaded to disc.'''
 
   print("Duckduckgo search:", keywords)
   links = duckduckgo_scrape_urls(keywords, max_results, img_size, img_type, img_layout, img_color)
-  return download_urls(Path(path)/label, links)
+  return download_urls(Path(path)/label, links, random_names=random_names)
 
 # Cell
 def save_urls_to_csv(path: Union[str, Path], label: str, keywords: str, max_results: int=100,
@@ -228,7 +233,7 @@ def save_urls_to_csv(path: Union[str, Path], label: str, keywords: str, max_resu
   df.to_csv(path, index=False)
 
 # Cell
-def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_col: str="URL", label_col: str="Label"):
+def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_col: str="URL", label_col: str="Label", random_names=False):
     '''Download the URLs from a CSV file to the given path. Returns a list of Path objects for files downloaded to disc.'''
     path = Path(path); csv = Path(csv);
 
@@ -239,6 +244,6 @@ def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_
     for label in labels:
         df_label = df.loc[df[label_col] == label]
         urls = df_label[url_col].to_list()
-        imgs.extend(download_urls(path/label, urls))
+        imgs.extend(download_urls(path/label, urls, random_names=random_names))
 
     return imgs
