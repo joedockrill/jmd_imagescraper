@@ -353,7 +353,7 @@ nb_path: "00_core.ipynb"
 <div class="output_text output_subarea output_execute_result">
 <pre>[&#39;https://cdn3.volusion.com/9nxdj.fchy5/v/vspfiles/photos/WR-13710-2T.jpg?1528880561&#39;,
  &#39;http://4.bp.blogspot.com/-GKGVUan6I3w/UOQtWCzichI/AAAAAAAANs0/mxox-FdrnRA/s1600/019.jpg&#39;,
- &#39;https://i.pinimg.com/736x/fa/fd/83/fafd8381375e3724bb2b2842ad175792--alessandra-ambrosio-dip-dyed.jpg&#39;]</pre>
+ &#39;https://i.ebayimg.com/images/g/ZNYAAOSwfHBceXDy/s-l300.jpg&#39;]</pre>
 </div>
 
 </div>
@@ -460,7 +460,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_urls" class="doc_header"><code>download_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L155" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_urls</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>links</code></strong>:<code>list</code>)</p>
+<h4 id="download_urls" class="doc_header"><code>download_urls</code><a href="__main__.py#L4" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_urls</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>links</code></strong>:<code>list</code>, <strong><code>random_names</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Downloads urls to the given path. Returns a list of Path objects for files downloaded to disc.</p>
 
@@ -476,7 +476,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Files will be saved as 001.jpg, 002.jpg etc but images already present will not be overwritten, so you can run multiple searches for the same label (eg: different genres of orchid all under one 'orchid' label) and file numbering will carry on from the last one on disc.</p>
+<p>Files will be saved as 001.jpg, 002.jpg etc but images already present will not be overwritten, so you can run multiple searches for the same label (eg: different genres of orchid all under one 'orchid' label) and file numbering will carry on from the last one on disc. If the <code>random_names</code> parameter is set to <code>True</code>, a random string is tacked on to the name of the file like <code>001_4cda4d95.jpg</code>,<code>002__cc13976d.jpg</code> to ensure that the filenames are unique, even across directories.</p>
 <p>Downloaded files will be checked for validity so you should never end up with corrupt images or truncated downloads. (Let me know if anything duff gets through)</p>
 <p>Returns a list of Path objects for succesfully downloaded images.</p>
 
@@ -504,7 +504,77 @@ nb_path: "00_core.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\purple
+<pre>Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:01<00:00 Images downloaded]
+    </div>
+    
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple/001.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple/002.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple/003.jpg&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">/</span><span class="s2">&quot;images&quot;</span>
+<span class="n">download_urls</span><span class="p">(</span><span class="n">root</span><span class="o">/</span><span class="s2">&quot;purple2&quot;</span><span class="p">,</span> <span class="n">links</span><span class="p">,</span> <span class="n">random_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple2
 </pre>
 </div>
 </div>
@@ -540,9 +610,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/purple/001.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/purple/002.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/purple/003.jpg&#39;)]</pre>
+<pre>[Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple2/001_5eeb927e.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple2/002_e09a7de6.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/purple2/003_3c94f776.jpg&#39;)]</pre>
 </div>
 
 </div>
@@ -571,7 +641,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="duckduckgo_search" class="doc_header"><code>duckduckgo_search</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L199" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_search</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="duckduckgo_search" class="doc_header"><code>duckduckgo_search</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L203" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_search</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>, <strong><code>random_names</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Run a DuckDuckGo search and download the images. Returns a list of Path objects for files downloaded to disc.</p>
 
@@ -613,7 +683,7 @@ nb_path: "00_core.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: nice clowns
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
+Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice
 </pre>
 </div>
 </div>
@@ -637,7 +707,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
             }
         </style>
       <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [3/3 00:00<00:00 Images downloaded]
+      100.00% [3/3 00:03<00:00 Images downloaded]
     </div>
     
 </div>
@@ -649,9 +719,79 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/001.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/002.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/003.jpg&#39;)]</pre>
+<pre>[Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/001.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/002.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/003.jpg&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">duckduckgo_search</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;Nice&quot;</span><span class="p">,</span> <span class="s2">&quot;nice clowns&quot;</span><span class="p">,</span> <span class="n">max_results</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Duckduckgo search: nice clowns
+Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+    <div>
+        <style>
+            /* Turns off some styling */
+            progress {
+                /* gets rid of default border in Firefox and Opera. */
+                border: none;
+                /* Needs to be in here for Safari polyfill so background images work as expected. */
+                background-size: auto;
+            }
+            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+                background: #F44336;
+            }
+        </style>
+      <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      100.00% [3/3 00:02<00:00 Images downloaded]
+    </div>
+    
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/001_2da8aaba.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/002_81b6e5b4.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/003_956691f0.jpg&#39;)]</pre>
 </div>
 
 </div>
@@ -681,7 +821,8 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
     <span class="s2">&quot;img_size&quot;</span><span class="p">:</span>    <span class="n">ImgSize</span><span class="o">.</span><span class="n">Cached</span><span class="p">,</span> 
     <span class="s2">&quot;img_type&quot;</span><span class="p">:</span>    <span class="n">ImgType</span><span class="o">.</span><span class="n">Photo</span><span class="p">,</span>
     <span class="s2">&quot;img_layout&quot;</span><span class="p">:</span>  <span class="n">ImgLayout</span><span class="o">.</span><span class="n">Square</span><span class="p">,</span>
-    <span class="s2">&quot;img_color&quot;</span><span class="p">:</span>   <span class="n">ImgColor</span><span class="o">.</span><span class="n">All</span>
+    <span class="s2">&quot;img_color&quot;</span><span class="p">:</span>   <span class="n">ImgColor</span><span class="o">.</span><span class="n">All</span><span class="p">,</span>
+    <span class="s2">&quot;random_names&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 
 <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -702,7 +843,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: nice clowns
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
+Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice
 </pre>
 </div>
 </div>
@@ -726,7 +867,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
             }
         </style>
       <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [3/3 00:00<00:00 Images downloaded]
+      100.00% [3/3 00:02<00:00 Images downloaded]
     </div>
     
 </div>
@@ -737,7 +878,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: scary clowns
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Scary
+Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Scary
 </pre>
 </div>
 </div>
@@ -761,7 +902,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\S
             }
         </style>
       <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [3/3 00:00<00:00 Images downloaded]
+      100.00% [3/3 00:02<00:00 Images downloaded]
     </div>
     
 </div>
@@ -772,7 +913,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\S
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: mimes
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Mime
+Downloading results into /Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Mime
 </pre>
 </div>
 </div>
@@ -796,7 +937,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
             }
         </style>
       <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [3/3 00:00<00:00 Images downloaded]
+      100.00% [3/3 00:02<00:00 Images downloaded]
     </div>
     
 </div>
@@ -808,15 +949,15 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/004.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/005.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/006.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/001.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/002.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/003.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/001.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/002.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/003.jpg&#39;)]</pre>
+<pre>[Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/001_c040ccb0.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/002_a7f8e765.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Nice/003_f05a000c.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Scary/001_3a155a2d.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Scary/002_55128fe1.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Scary/003_12a21c43.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Mime/001_9640f045.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Mime/002_8c3198aa.jpg&#39;),
+ Path(&#39;/Users/butch/devt/workspaces/python3/fastai2_2020/jmd_imagescraper/images/Mime/003_5944b53a.jpg&#39;)]</pre>
 </div>
 
 </div>
@@ -852,7 +993,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="save_urls_to_csv" class="doc_header"><code>save_urls_to_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L211" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>save_urls_to_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="save_urls_to_csv" class="doc_header"><code>save_urls_to_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L216" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>save_urls_to_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
 </blockquote>
 <p>Run a search and concat the URLs to a CSV file</p>
 
@@ -952,7 +1093,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
     </tr>
     <tr>
       <th>4</th>
-      <td>https://tse1.mm.bing.net/th?id=OIP.9lCTTlLeQV9...</td>
+      <td>https://tse4.mm.bing.net/th?id=OIP.4h5GbgzyJgG...</td>
       <td>Nice</td>
     </tr>
     <tr>
@@ -1011,7 +1152,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_images_from_csv" class="doc_header"><code>download_images_from_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L231" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_images_from_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>csv</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>url_col</code></strong>:<code>str</code>=<em><code>'URL'</code></em>, <strong><code>label_col</code></strong>:<code>str</code>=<em><code>'Label'</code></em>)</p>
+<h4 id="download_images_from_csv" class="doc_header"><code>download_images_from_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L236" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_images_from_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>csv</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>url_col</code></strong>:<code>str</code>=<em><code>'URL'</code></em>, <strong><code>label_col</code></strong>:<code>str</code>=<em><code>'Label'</code></em>, <strong><code>random_names</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Download the URLs from a CSV file to the given path. Returns a list of Path objects for files downloaded to disc.</p>
 
