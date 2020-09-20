@@ -36,3 +36,11 @@ display_image_cleaner(root)
 ## Docs
 
 If you're reading this on pypi.org you can find the docs at https://joedockrill.github.io/jmd_imagescraper/
+
+## History
+
+```
+20/09/2020 add: PR from @butchland, add uuid to filenames, fix for users of fastai.vision.widgets.ImageClassifierCleaner
+18/09/2020 rel: version 1 released as pypi package
+
+```
