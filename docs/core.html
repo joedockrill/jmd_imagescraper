@@ -47,13 +47,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -75,13 +68,6 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Using <code>Cached</code> as the image size (the default) returns the image cached by DuckDuckGo/Bing. This is a very decent size for deep learning purposes and is much more reliable to download from (no 404s, no hot-linking bans etc). Using any other size will return the original images from the source websites.</p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -89,6 +75,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using <code>Cached</code> as the image size (the default) returns the image cached by DuckDuckGo/Bing. This is a very decent size for deep learning purposes and is much more reliable to download from (no 404s, no hot-linking bans etc). Using any other size will return the original images from the source websites.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -114,13 +107,6 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This defaults to <code>Square</code> everywhere because that's what your DL models want.</p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -128,6 +114,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This defaults to <code>Square</code> everywhere because that's what your DL models want.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -153,13 +146,6 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Defaults to <code>Photo</code> everywhere</p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -167,6 +153,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Defaults to <code>Photo</code> everywhere</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -192,9 +185,55 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Probably unlikely to be of much use to you but it's part of the API so I include it. You never know...</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ImgLicense" class="doc_header"><code>ImgLicense</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Enum</code> = [All, Any, Public, Share, ShareCommercially, Modify, ModifyCommercially]</p>
+</blockquote>
+<p>An enumeration.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Defaults to All, but you might want to change to another license in order to adhere to local laws. As duduckgo themselves remark, there is no guarantee that licensing is declared correctly. More information can be found <a href="https://help.duckduckgo.com/duckduckgo-help-pages/features/image-license/">here</a>.</p>
 
 </div>
 </div>
@@ -209,13 +248,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -223,7 +255,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="duckduckgo_scrape_urls" class="doc_header"><code>duckduckgo_scrape_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_scrape_urls</code>(<strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="duckduckgo_scrape_urls" class="doc_header"><code>duckduckgo_scrape_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_scrape_urls</code>(<strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>, <strong><code>img_license</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLicense"><code>ImgLicense</code></a>=<em><code>&lt;ImgLicense.All: ''&gt;</code></em>)</p>
 </blockquote>
 <p>Scrapes URLs from DuckDuckGo image search. Returns list of URLs.</p>
 
@@ -233,6 +265,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -267,9 +306,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;https://tse1.mm.bing.net/th?id=OIP.LR-2HW7P9ENbMGJ7cZTVGwHaHL&amp;pid=Api&#39;,
- &#39;https://tse4.mm.bing.net/th?id=OIP.jgAbDJb9lY-p0Q83Q2xsCgHaI0&amp;pid=Api&#39;,
- &#39;https://tse4.mm.bing.net/th?id=OIP.4g2txn6PXyuTbEXcJPI2qQHaIE&amp;pid=Api&#39;]</pre>
+<pre>[&#39;https://tse4.mm.bing.net/th?id=OIP.jgAbDJb9lY-p0Q83Q2xsCgHaI0&amp;pid=Api&#39;,
+ &#39;https://tse4.mm.bing.net/th?id=OIP.v6D_Ct-9e25ncKqRNl87tgHaHa&amp;pid=Api&#39;,
+ &#39;https://tse1.mm.bing.net/th?id=OIP.LR-2HW7P9ENbMGJ7cZTVGwHaHL&amp;pid=Api&#39;]</pre>
 </div>
 
 </div>
@@ -301,7 +340,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<img src="https://tse1.mm.bing.net/th?id=OIP.LR-2HW7P9ENbMGJ7cZTVGwHaHL&pid=Api"/>
+<img src="https://tse4.mm.bing.net/th?id=OIP.jgAbDJb9lY-p0Q83Q2xsCgHaI0&pid=Api"/>
 </div>
 
 </div>
@@ -332,7 +371,8 @@ nb_path: "00_core.ipynb"
     <span class="s2">&quot;img_size&quot;</span><span class="p">:</span>    <span class="n">ImgSize</span><span class="o">.</span><span class="n">Medium</span><span class="p">,</span> 
     <span class="s2">&quot;img_type&quot;</span><span class="p">:</span>    <span class="n">ImgType</span><span class="o">.</span><span class="n">Photo</span><span class="p">,</span>
     <span class="s2">&quot;img_layout&quot;</span><span class="p">:</span>  <span class="n">ImgLayout</span><span class="o">.</span><span class="n">All</span><span class="p">,</span>
-    <span class="s2">&quot;img_color&quot;</span><span class="p">:</span>   <span class="n">ImgColor</span><span class="o">.</span><span class="n">Purple</span>
+    <span class="s2">&quot;img_color&quot;</span><span class="p">:</span>   <span class="n">ImgColor</span><span class="o">.</span><span class="n">Purple</span><span class="p">,</span>
+    <span class="s2">&quot;img_license&quot;</span><span class="p">:</span> <span class="n">ImgLicense</span><span class="o">.</span><span class="n">All</span>
 <span class="p">}</span>
 
 <span class="n">links</span> <span class="o">=</span> <span class="n">duckduckgo_scrape_urls</span><span class="p">(</span><span class="s2">&quot;puppies&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
@@ -351,9 +391,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;https://cdn3.volusion.com/9nxdj.fchy5/v/vspfiles/photos/WR-13710-2T.jpg?1528880561&#39;,
- &#39;http://4.bp.blogspot.com/-GKGVUan6I3w/UOQtWCzichI/AAAAAAAANs0/mxox-FdrnRA/s1600/019.jpg&#39;,
- &#39;http://www.hahastop.com/thumbsb/The_All_Purple_Dog_b.jpg&#39;]</pre>
+<pre>[&#39;http://i298.photobucket.com/albums/mm275/froggyhoppy/Purplepuppy22.png&#39;,
+ &#39;https://i.pinimg.com/originals/26/fa/03/26fa03563355a5ce69628dc158990c5d.jpg&#39;,
+ &#39;https://i.pinimg.com/474x/a8/14/03/a814035887bf4acdd60a1fd83bcceca1--cute-pugs-cute-puppies.jpg&#39;]</pre>
 </div>
 
 </div>
@@ -386,7 +426,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_html rendered_html output_subarea ">
-<img src="http://4.bp.blogspot.com/-GKGVUan6I3w/UOQtWCzichI/AAAAAAAANs0/mxox-FdrnRA/s1600/019.jpg"/>
+<img src="https://i.pinimg.com/originals/26/fa/03/26fa03563355a5ce69628dc158990c5d.jpg"/>
 </div>
 
 </div>
@@ -407,13 +447,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -421,7 +454,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rmtree" class="doc_header"><code>rmtree</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L147" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmtree</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
+<h4 id="rmtree" class="doc_header"><code>rmtree</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L160" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rmtree</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>])</p>
 </blockquote>
 <p>Recursively delete a directory tree</p>
 
@@ -431,6 +464,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -446,13 +486,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -460,7 +493,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_urls" class="doc_header"><code>download_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L157" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_urls</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>links</code></strong>:<code>list</code>, <strong><code>uuid_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="download_urls" class="doc_header"><code>download_urls</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L170" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_urls</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>links</code></strong>:<code>list</code>, <strong><code>uuid_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Downloads urls to the given path. Returns a list of Path objects for files downloaded to disc.</p>
 
@@ -470,6 +503,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -504,7 +544,7 @@ nb_path: "00_core.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\purple
+<pre>Downloading results into /home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/purple
 </pre>
 </div>
 </div>
@@ -528,7 +568,7 @@ nb_path: "00_core.ipynb"
             }
         </style>
       <progress value='3' class='' max='3' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      100.00% [3/3 00:00<00:00 Images downloaded]
+      100.00% [3/3 00:01<00:00 Images downloaded]
     </div>
     
 </div>
@@ -540,22 +580,15 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/purple/001_0e3cc95b.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/purple/002_6e8b3e7a.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/purple/003_4fddf126.jpg&#39;)]</pre>
+<pre>[Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/purple/001_0eccbfd3.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/purple/002_db20fa11.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/purple/003_67ac06c9.jpg&#39;)]</pre>
 </div>
 
 </div>
 
 </div>
 </div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -571,7 +604,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="duckduckgo_search" class="doc_header"><code>duckduckgo_search</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L202" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_search</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>, <strong><code>uuid_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="duckduckgo_search" class="doc_header"><code>duckduckgo_search</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L215" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>duckduckgo_search</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>, <strong><code>img_license</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLicense"><code>ImgLicense</code></a>=<em><code>&lt;ImgLicense.All: ''&gt;</code></em>, <strong><code>uuid_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Run a DuckDuckGo search and download the images. Returns a list of Path objects for files downloaded to disc.</p>
 
@@ -581,6 +614,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -606,7 +646,7 @@ nb_path: "00_core.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: nice clowns
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
+Downloading results into /home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice
 </pre>
 </div>
 </div>
@@ -642,9 +682,9 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/001_6b99919b.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/002_8c1451d7.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/003_d8a0fef5.jpg&#39;)]</pre>
+<pre>[Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice/001_39a55204.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice/002_2d65eabc.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice/003_9c5be979.jpg&#39;)]</pre>
 </div>
 
 </div>
@@ -675,6 +715,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
     <span class="s2">&quot;img_type&quot;</span><span class="p">:</span>    <span class="n">ImgType</span><span class="o">.</span><span class="n">Photo</span><span class="p">,</span>
     <span class="s2">&quot;img_layout&quot;</span><span class="p">:</span>  <span class="n">ImgLayout</span><span class="o">.</span><span class="n">Square</span><span class="p">,</span>
     <span class="s2">&quot;img_color&quot;</span><span class="p">:</span>   <span class="n">ImgColor</span><span class="o">.</span><span class="n">All</span><span class="p">,</span>
+    <span class="s2">&quot;img_license&quot;</span><span class="p">:</span> <span class="n">ImgLicense</span><span class="o">.</span><span class="n">All</span><span class="p">,</span>
     <span class="s2">&quot;uuid_names&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 
@@ -696,7 +737,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: nice clowns
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Nice
+Downloading results into /home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice
 </pre>
 </div>
 </div>
@@ -731,7 +772,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\N
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: scary clowns
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Scary
+Downloading results into /home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Scary
 </pre>
 </div>
 </div>
@@ -766,7 +807,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\S
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Duckduckgo search: mimes
-Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\Mime
+Downloading results into /home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Mime
 </pre>
 </div>
 </div>
@@ -802,15 +843,15 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/007_6af54a70.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/008_c304d5ca.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Nice/009_efb040f8.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/001_b63c3858.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/002_40398473.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Scary/003_e801795a.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/001_f66174ed.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/002_ee152455.jpg&#39;),
- Path(&#39;C:/Users/Joe/Documents/GitHub/jmd_imagescraper/images/Mime/003_32d7762d.jpg&#39;)]</pre>
+<pre>[Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice/010_2bc1dbcd.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice/011_fff50778.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Nice/012_0d2050b5.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Scary/007_cef65723.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Scary/008_21c3a94c.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Scary/009_7011ed69.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Mime/007_3d9b319c.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Mime/008_84187b85.jpg&#39;),
+ Path(&#39;/home/jonas/Dokumente/Learning/MASTERARBEIT/MA/Code/jmd_imagescraper/images/Mime/009_e809ee87.jpg&#39;)]</pre>
 </div>
 
 </div>
@@ -832,13 +873,6 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -846,7 +880,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="save_urls_to_csv" class="doc_header"><code>save_urls_to_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L215" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>save_urls_to_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>)</p>
+<h4 id="save_urls_to_csv" class="doc_header"><code>save_urls_to_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L229" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>save_urls_to_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>label</code></strong>:<code>str</code>, <strong><code>keywords</code></strong>:<code>str</code>, <strong><code>max_results</code></strong>:<code>int</code>=<em><code>100</code></em>, <strong><code>img_size</code></strong>:<a href="/jmd_imagescraper/core.html#ImgSize"><code>ImgSize</code></a>=<em><code>&lt;ImgSize.Cached: ''&gt;</code></em>, <strong><code>img_type</code></strong>:<a href="/jmd_imagescraper/core.html#ImgType"><code>ImgType</code></a>=<em><code>&lt;ImgType.Photo: 'photo'&gt;</code></em>, <strong><code>img_layout</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLayout"><code>ImgLayout</code></a>=<em><code>&lt;ImgLayout.Square: 'Square'&gt;</code></em>, <strong><code>img_color</code></strong>:<a href="/jmd_imagescraper/core.html#ImgColor"><code>ImgColor</code></a>=<em><code>&lt;ImgColor.All: ''&gt;</code></em>, <strong><code>img_licence</code></strong>:<a href="/jmd_imagescraper/core.html#ImgLicense"><code>ImgLicense</code></a>=<em><code>&lt;ImgLicense.All: ''&gt;</code></em>)</p>
 </blockquote>
 <p>Run a search and concat the URLs to a CSV file</p>
 
@@ -856,6 +890,13 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -991,13 +1032,6 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -1005,7 +1039,7 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_images_from_csv" class="doc_header"><code>download_images_from_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L235" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_images_from_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>csv</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>url_col</code></strong>:<code>str</code>=<em><code>'URL'</code></em>, <strong><code>label_col</code></strong>:<code>str</code>=<em><code>'Label'</code></em>, <strong><code>uuid_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="download_images_from_csv" class="doc_header"><code>download_images_from_csv</code><a href="https://github.com/joedockrill/jmd_imagescraper/tree/master/jmd_imagescraper/core.py#L250" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_images_from_csv</code>(<strong><code>path</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>csv</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>url_col</code></strong>:<code>str</code>=<em><code>'URL'</code></em>, <strong><code>label_col</code></strong>:<code>str</code>=<em><code>'Label'</code></em>, <strong><code>uuid_names</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Download the URLs from a CSV file to the given path. Returns a list of Path objects for files downloaded to disc.</p>
 
@@ -1015,6 +1049,13 @@ Downloading results into C:\Users\Joe\Documents\GitHub\jmd_imagescraper\images\M
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
