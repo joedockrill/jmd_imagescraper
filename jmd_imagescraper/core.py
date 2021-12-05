@@ -68,7 +68,8 @@ def duckduckgo_scrape_urls(keywords: str, max_results: int,
                            img_size: ImgSize=ImgSize.Cached,
                            img_type: ImgType=ImgType.Photo,
                            img_layout: ImgLayout=ImgLayout.Square,
-                           img_color: ImgColor=ImgColor.All) -> list:
+                           img_color: ImgColor=ImgColor.All,
+                           timeout: Union[float, tuple]=None) -> list:
   '''Scrapes URLs from DuckDuckGo image search. Returns list of URLs.'''
   BASE_URL = 'https://duckduckgo.com/'
   params = {
@@ -117,9 +118,11 @@ def duckduckgo_scrape_urls(keywords: str, max_results: int,
   while True:
       while True:
           try:
-              resp = requests.get(requestUrl, headers=HEADERS, params=PARAMS)
+              resp = requests.get(requestUrl, headers=HEADERS, params=PARAMS, timeout=timeout)
               data = json.loads(resp.text)
               break
+          except requests.exceptions.Timeout as e:
+              print("Timeout while trying to scrape URLs.")
           except ValueError as e:
               print("Hit request throttle, sleeping and retrying")
               time.sleep(5)
@@ -154,7 +157,7 @@ def rmtree(path: Union[str, Path]):
 
 # Cell
 
-def download_urls(path: Union[str, Path], links: list, uuid_names: bool=True) -> list:
+def download_urls(path: Union[str, Path], links: list, uuid_names: bool=True, timeout: Union[float, tuple]=None) -> list:
   '''Downloads urls to the given path. Returns a list of Path objects for files downloaded to disc.'''
   if(len(links) == 0):
     print("Nothing to download!"); return
@@ -177,7 +180,7 @@ def download_urls(path: Union[str, Path], links: list, uuid_names: bool=True) ->
 
   for link in pbar:
       try:
-        resp = requests.get(link)
+        resp = requests.get(link, timeout=timeout)
         fp = mk_fp(i)
         fp.write_bytes(resp.content)
 
@@ -190,6 +193,8 @@ def download_urls(path: Union[str, Path], links: list, uuid_names: bool=True) ->
           # print(e)
           print(fp, "is invalid")
           fp.unlink()
+      except requests.exceptions.Timeout as e:
+        print("Timeout while trying to retrieve", link)
       except Exception as e:
         # print(e)
         print("Exception occured while retrieving", link)
@@ -204,26 +209,29 @@ def duckduckgo_search(path: Union[str, Path], label: str, keywords: str, max_res
                            img_type: ImgType=ImgType.Photo,
                            img_layout: ImgLayout=ImgLayout.Square,
                            img_color: ImgColor=ImgColor.All,
+                           timeout: Union[float, tuple]=None,
+                           scrape_timeout: Union[float, tuple]=None,
                            uuid_names: bool=True) -> list:
   '''Run a DuckDuckGo search and download the images. Returns a list of Path objects for files downloaded to disc.'''
 
   print("Duckduckgo search:", keywords)
-  links = duckduckgo_scrape_urls(keywords, max_results, img_size, img_type, img_layout, img_color)
-  return download_urls(Path(path)/label, links, uuid_names=uuid_names)
+  links = duckduckgo_scrape_urls(keywords, max_results, img_size, img_type, img_layout, img_color, timeout=scrape_timeout)
+  return download_urls(Path(path)/label, links, uuid_names=uuid_names, timeout=timeout)
 
 # Cell
 def save_urls_to_csv(path: Union[str, Path], label: str, keywords: str, max_results: int=100,
                        img_size: ImgSize=ImgSize.Cached,
                        img_type: ImgType=ImgType.Photo,
                        img_layout: ImgLayout=ImgLayout.Square,
-                       img_color: ImgColor=ImgColor.All) -> None:
+                       img_color: ImgColor=ImgColor.All,
+                       timeout: Union[float, tuple]=None) -> None:
   '''Run a search and concat the URLs to a CSV file'''
   path = Path(path)
   if(path.exists() == False):
     df = pd.DataFrame(columns=["URL", "Label"])
     df.to_csv(path, index=False)
 
-  urls = duckduckgo_scrape_urls(keywords, max_results, img_size, img_type, img_layout, img_color)
+  urls = duckduckgo_scrape_urls(keywords, max_results, img_size, img_type, img_layout, img_color, timeout=timeout)
 
   rows = []
   for url in urls: rows.append({"URL":url, "Label":label})
@@ -232,7 +240,7 @@ def save_urls_to_csv(path: Union[str, Path], label: str, keywords: str, max_resu
   df.to_csv(path, index=False)
 
 # Cell
-def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_col: str="URL", label_col: str="Label", uuid_names: bool=True):
+def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_col: str="URL", label_col: str="Label", uuid_names: bool=True, timeout: Union[float, tuple]=None):
     '''Download the URLs from a CSV file to the given path. Returns a list of Path objects for files downloaded to disc.'''
     path = Path(path); csv = Path(csv);
 
@@ -243,6 +251,6 @@ def download_images_from_csv(path: Union[str, Path], csv: Union[str, Path], url_
     for label in labels:
         df_label = df.loc[df[label_col] == label]
         urls = df_label[url_col].to_list()
-        imgs.extend(download_urls(path/label, urls, uuid_names=uuid_names))
+        imgs.extend(download_urls(path/label, urls, uuid_names=uuid_names, timeout=timeout))
 
     return imgs
